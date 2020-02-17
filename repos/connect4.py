@@ -95,39 +95,37 @@ class newGame:
                     rTest = 0
                 self._checkCheckWin(rTest, yTest)
         #Diag Up
-        for ru in range(4,6):
+        for ru in range(3,6):
             rTest = 0
-            yTest = 0
-            for du in range(4):
-                if self.board[(ru-du)][du] == "   ":
-                    rTest = 0
-                    yTest = 0
-                elif self.board[(ru-du)][du] == " x ":
-                    rTest += 1
-                    yTest = 0
-                elif self.board[(ru-du)][du] == " o ":
-                    yTest += 1
-                    rTest = 0
-                self._checkCheckWin(rTest, yTest)
+            yTest = 0 
+            for cu in range(0,4):
+                for du in range(4):
+                        if self.board[(ru-du)][(du+cu)] == "   ":
+                            rTest = 0
+                            yTest = 0
+                        elif self.board[(ru-du)][(du+cu)] == " x ":
+                            rTest += 1
+                            yTest = 0
+                        elif self.board[(ru-du)][(du+cu)] == " o ":
+                            yTest += 1
+                            rTest = 0
+                        self._checkCheckWin(rTest, yTest)
         #Diag down
         for rd in range(3):
             rTest = 0
             yTest = 0
-            if self.board[4][3] == " x ":
-                print("ahhhh")
-            if self.board[4][3] == " o ":
-                print("ahhhh")
-            for dd in range(4):
-                if self.board[(rd+dd)][dd] == "   ":
-                    rTest = 0
-                    yTest = 0
-                elif self.board[(rd+dd)][dd] == " x ":
-                    rTest += 1
-                    yTest = 0
-                elif self.board[(rd+dd)][dd] == " o ":
-                    yTest += 1
-                    rTest = 0
-                self._checkCheckWin(rTest, yTest)
+            for cd in range(0,4):
+                for dd in range(4):
+                    if self.board[(rd+dd)][(dd+cd)] == "   ":
+                        rTest = 0
+                        yTest = 0
+                    elif self.board[(rd+dd)][(dd+cd)] == " x ":
+                        rTest += 1
+                        yTest = 0
+                    elif self.board[(rd+dd)][(dd+cd)] == " o ":
+                        yTest += 1
+                        rTest = 0
+                    self._checkCheckWin(rTest, yTest)
         
     def nextTurn(self):
         self._printBoard()
